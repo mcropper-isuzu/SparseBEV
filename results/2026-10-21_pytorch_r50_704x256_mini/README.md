@@ -13,7 +13,7 @@
 | GPU | RTX 5080 Laptop GPU (sm_120), driver 595.99.02 |
 | Env | conda `sparsebev-cu128`: Python 3.10, PyTorch 2.7.1+cu128, mmcv-full 1.7.0 (built from source, sm_120), mmdet 2.28.2, mmdet3d 1.0.0rc6. Full list in `pip_freeze.txt` |
 | Sampling op | Custom CUDA `msmv_sampling` (compiled for sm_120) |
-| Precision | `val.py` sets `fp16_enabled=True`; `timing.py` runs FP32 |
+| Precision | FP32 with PyTorch's default TF32 convolutions. `val.py` sets `fp16_enabled=True`, but the single-GPU test path (`simple_test_online`) turns it off again |
 
 Changes from orginal repo: `mmcv/parallel/_functions.py` line 75 wraps the device index in `torch.device("cuda", device)` (mmcv 1.x vs PyTorch 2.x incompatibility).
 

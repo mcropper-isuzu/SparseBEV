@@ -52,14 +52,4 @@ Per-class:
 | traffic_cone | 0.818 | 0.166 | 0.330 | nan | nan | nan |
 | barrier | 0.000 | 1.000 | 1.000 | 1.000 | nan | nan |
 
-## Notes
 
-- Same caveats as the 900-query run: mini val is small, and trailer, construction_vehicle and barrier score 0 AP. Use this run for relative comparisons (ONNX / TensorRT vs PyTorch), not against the paper's numbers.
-- FPS here and in the paper is measured in PyTorch with Python overhead included. TensorRT numbers will come from a different measurement.
-
-## Files
-
-- `metrics_summary.json`, `metrics_details.json`, `plots/`: nuScenes devkit evaluation output
-- `results_nusc.json`: raw predictions in nuScenes submission format
-- `r50_nuimg_704x256_400q_36ep_mini.py`: config used
-- `pip_freeze.txt`: exact package versions
